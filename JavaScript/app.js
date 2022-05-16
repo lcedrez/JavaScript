@@ -13,7 +13,7 @@ while(numero!=3)
     {
         alert("Debe Ingresar un Numero no se permiten Textos")
     }
-   else if(numero <=0 || numero >= 10)
+   else if(numero <=0 || numero > 10)
     {
         alert("Debe Ingresar un Número entre 1 y 10")
        
