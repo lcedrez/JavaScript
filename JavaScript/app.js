@@ -1,6 +1,7 @@
 
 /*Segundo Entregable */
 
+/*Creo el objeto Articulo */
 function Articulo(cod_articulo,descripcion,precio,descuento,cantPdesc){
 
     this.cod_articulo=cod_articulo;
@@ -12,7 +13,8 @@ function Articulo(cod_articulo,descripcion,precio,descuento,cantPdesc){
     
 }
 
-/*creo una funcion para calcualr el precio Final con descuento*/
+
+/*creo una funcion para calcular el precio Final con descuento*/
 function CalculoDescuentos(precio,descuento,cantidad)
 {
     var calculo
@@ -53,6 +55,9 @@ function Validar(variable)
        }
 }
 
+
+
+
 /*Creo otra funcion para validar las cantidades*/
 
 function validarCantidades(cantidad)
@@ -74,6 +79,7 @@ function validarCantidades(cantidad)
     else if(cantidad==0)
     {
         alert("La cantidad debe ser mayor a 0")
+        
         return false
     }
     else
@@ -85,6 +91,18 @@ function validarCantidades(cantidad)
     
 
 }
+/*Creo funcion para ir guardando el total de todas las compras*/
+function guardarTotal(precioTotal)
+{
+   
+
+    var totalPrecio = + precioTotal
+    
+
+    return totalPrecio;
+
+
+}
 
 
 const articulo1= new Articulo("1144","Amoxidal",1200,10,2)
@@ -93,10 +111,12 @@ const articulo3= new Articulo("3344","Ibuprofeno",900,15,5)
 const articulo4= new Articulo("4444","Aspirina",500,10,3)
 const articulo5= new Articulo("5544","Bisolvon",2800,20,4)
 
+/*Declaro Variables y un array para guardar el total de la compra */
 var codIngresado=0
 var cantidadIngresada=0
 var preciofinal=0
-var TotalAcumulado
+let TotalAcumulado =[]
+
 
 
 alert("Bienvenido a FarmaShop, a continuación el listado de nuestros articulos")
@@ -113,7 +133,7 @@ console.table(articulo5)
 
 
 
-if (confirm("Desea comprar algun Articulo?"))
+while (confirm("Desea comprar algun Articulo?"))
     {
      true;
         codIngresado=prompt("Ingrese Codigo del Articulo:")
@@ -137,12 +157,14 @@ if (confirm("Desea comprar algun Articulo?"))
                 
                 alert("Se le aplicara un descuento de $"+" " + descuentoAplicado )
                 alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
+                TotalAcumulado.push(resultadoFinal)
             }
            else
            {
                 preciofinal=cantidadIngresada*articulo1.precio
-                TotalAcumulado=+preciofinal
+                
                 alert("El precio Final de la compra es de $" + " " + preciofinal)
+                TotalAcumulado.push(preciofinal)
            
             }
 
@@ -167,12 +189,13 @@ if (confirm("Desea comprar algun Articulo?"))
                 
                 alert("Se le aplicara un descuento de $"+" " + descuentoAplicado )
                 alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
+                TotalAcumulado.push(resultadoFinal)
             }
            else
            {
                 preciofinal=cantidadIngresada*articulo2.precio
-                TotalAcumulado=+preciofinal
                 alert("El precio Final de la compra es de $" + " " + preciofinal)
+                TotalAcumulado.push(preciofinal)
            
             }
  
@@ -194,12 +217,13 @@ if (confirm("Desea comprar algun Articulo?"))
                 
                 alert("Se le aplicara un descuento de $"+" " + descuentoAplicado )
                 alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
+                TotalAcumulado.push(resultadoFinal)
             }
            else
            {
                 preciofinal=cantidadIngresada*articulo3.precio
-                TotalAcumulado=+preciofinal
                 alert("El precio Final de la compra es de $" + " " + preciofinal)
+                TotalAcumulado.push(preciofinal)
            
             }
  
@@ -221,12 +245,14 @@ if (confirm("Desea comprar algun Articulo?"))
                 
                 alert("Se le aplicara un descuento de $"+" " + descuentoAplicado )
                 alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
+                TotalAcumulado.push(resultadoFinal)
+                
             }
            else
            {
                 preciofinal=cantidadIngresada*articulo2.precio
-                TotalAcumulado=+preciofinal
                 alert("El precio Final de la compra es de $" + " " + preciofinal)
+                TotalAcumulado.push(preciofinal)
            
             }
  
@@ -249,12 +275,13 @@ if (confirm("Desea comprar algun Articulo?"))
                 
                 alert("Se le aplicara un descuento de $"+" " + descuentoAplicado )
                 alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
+                TotalAcumulado.push(resultadoFinal)
             }
            else
             {
                 preciofinal=cantidadIngresada*articulo5.precio
-                TotalAcumulado=+preciofinal
                 alert("El precio Final de la compra es de $" + " " + preciofinal)
+                TotalAcumulado.push(preciofinal)
            
             }
  
@@ -268,11 +295,18 @@ if (confirm("Desea comprar algun Articulo?"))
 
 
     }
-    else
-    {
-     false;
-     alert("Gracias por su visita")
-    }
+
+    
+     /*Reocorro el Array para poder mostrar la suma de toda la compra */
+        let suma=0;
+        for(let i=0;i<TotalAcumulado.length;i++){
+            suma+=TotalAcumulado[i];
+        }
+    
+
+    alert("El Total a pagar es de $ " + " "+ suma )
+
+
 
 
 
