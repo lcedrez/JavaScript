@@ -91,18 +91,7 @@ function validarCantidades(cantidad)
     
 
 }
-/*Creo funcion para ir guardando el total de todas las compras*/
-function guardarTotal(precioTotal)
-{
-   
 
-    var totalPrecio = + precioTotal
-    
-
-    return totalPrecio;
-
-
-}
 
 
 const articulo1= new Articulo("1144","Amoxidal",1200,10,2)
@@ -296,7 +285,7 @@ while (confirm("Desea comprar algun Articulo?"))
 
     }
 
-    
+
      /*Reocorro el Array para poder mostrar la suma de toda la compra */
         let suma=0;
         for(let i=0;i<TotalAcumulado.length;i++){
