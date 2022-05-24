@@ -111,7 +111,7 @@ let TotalAcumulado =[]
 alert("Bienvenido a FarmaShop, a continuación el listado de nuestros articulos")
 
 
-
+alert("Codigo: " +articulo1.cod_articulo+"\n" +"Descricpion: "+ articulo1.descripcion+"\n"+"Precio: "+"$"+articulo1.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo2.cod_articulo+"\n" +"Descricpion: "+ articulo2.descripcion+"\n"+"Precio: "+"$"+articulo2.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo3.cod_articulo+"\n" +"Descricpion: "+ articulo3.descripcion+"\n"+"Precio: "+"$"+articulo3.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo4.cod_articulo+"\n" +"Descricpion: "+ articulo4.descripcion+"\n"+"Precio: "+"$"+articulo4.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo5.cod_articulo+"\n" +"Descricpion: "+ articulo5.descripcion+"\n"+"Precio: "+"$"+articulo5.precio+"\n"+"------------------------------------")
 console.table(articulo1)
 console.table(articulo2)
 console.table(articulo3)
@@ -122,9 +122,12 @@ console.table(articulo5)
 
 
 
+
+
 while (confirm("Desea comprar algun Articulo?"))
     {
      true;
+        
         codIngresado=prompt("Ingrese Codigo del Articulo:")
        while( Validar(codIngresado)==false)
        {
