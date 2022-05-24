@@ -12,6 +12,7 @@ function Articulo(cod_articulo,descripcion,precio,descuento,cantPdesc){
     
 }
 
+/*creo una funcion para calcualr el precio Final con descuento*/
 function CalculoDescuentos(precio,descuento,cantidad)
 {
     var calculo
@@ -20,6 +21,69 @@ function CalculoDescuentos(precio,descuento,cantidad)
     calculo=descuento* precio*cantidad/100 
     resultado=precio * cantidad -calculo
     return resultado
+}
+/*Creo otra Funcion para mostrar cuanto es ese descuento*/
+function CalculoaDescontar(precio,cantidad,descuento)
+{
+    var descaplicado
+   descaplicado= descuento * precio*cantidad/100
+
+   return descaplicado
+}
+/*Creo una funcion para validar lo que ingresa el usuario*/
+function Validar(variable)
+{
+    if(variable === ''){
+        alert("El campo esta vacío");
+       return false;
+       }
+       else
+       {
+        if(isNaN(variable))
+        {
+            alert("Debe Ingresar un Número")
+
+            return false
+        }
+        else
+        {
+            return true
+        }
+
+       }
+}
+
+/*Creo otra funcion para validar las cantidades*/
+
+function validarCantidades(cantidad)
+{
+    if(cantidad === '')
+    {
+        alert("El campo esta vacío");
+       return false;
+    }
+    else if(isNaN(cantidad))
+       {
+        
+        {
+            alert("Debe Ingresar un Número")
+
+            return false
+        }
+    }
+    else if(cantidad==0)
+    {
+        alert("La cantidad debe ser mayor a 0")
+        return false
+    }
+    else
+    {
+        return true
+    }
+    
+
+    
+
 }
 
 
@@ -45,44 +109,40 @@ console.table(articulo3)
 console.table(articulo4)
 console.table(articulo5)
 
+
+
+
+
 if (confirm("Desea comprar algun Articulo?"))
     {
      true;
-     codIngresado=prompt("Ingrese Codigo del Articulo:")
-
-     if(isNaN(codIngresado))
-     {
-        alert("Debe Ingresar un Numero no se permiten Textos, si desea salir ponga cero")
         codIngresado=prompt("Ingrese Codigo del Articulo:")
-     while(isNaN(codIngresado))
-     {
-        alert("Debe Ingresar un Numero no se permiten Textos, si desea salir ponga cero")
+       while( Validar(codIngresado)==false)
+       {
         codIngresado=prompt("Ingrese Codigo del Articulo:")
-        if(codIngresado==0)
-        {
-            alert("Muchas gracias por su visita!!")
-        }
-     }
-    }
-  
-     else if(codIngresado=="1144")
+       }
+        if(codIngresado=="1144")
         {
            alert("El Articulo elegido es"+ " " +articulo1.descripcion + "\n" + "Su precio es :$"+articulo1.precio+"\n"+"si compra más de "+" "+articulo1.cantPdesc+" "+"Unidades" +"\n"+"tiene un descuento del"+" "+articulo1.descuento+"%"+"\n"+"---------------------------------------")
            cantidadIngresada=prompt("Cantidad")
+           while(validarCantidades(cantidadIngresada)==false)
+           {
+            cantidadIngresada=prompt("Cantidad")
+           }
+
            if(cantidadIngresada >articulo1.cantPdesc )
            {
-
-            var resultadoFinal= CalculoDescuentos(articulo1.precio,articulo1.descuento,cantidadIngresada)
-            alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
-             
-
-
-           }
+                var descuentoAplicado=CalculoaDescontar(articulo1.precio,cantidadIngresada,articulo1.descuento)
+                var resultadoFinal= CalculoDescuentos(articulo1.precio,articulo1.descuento,cantidadIngresada)
+                
+                alert("Se le aplicara un descuento de $"+" " + descuentoAplicado )
+                alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
+            }
            else
            {
-           preciofinal=cantidadIngresada*articulo1.precio
-           TotalAcumulado=+preciofinal
-           alert("El precio Final de la compra es de $" + " " + preciofinal)
+                preciofinal=cantidadIngresada*articulo1.precio
+                TotalAcumulado=+preciofinal
+                alert("El precio Final de la compra es de $" + " " + preciofinal)
            
             }
 
@@ -97,8 +157,11 @@ if (confirm("Desea comprar algun Articulo?"))
             cantidadIngresada=prompt("Cantidad")
             if(cantidadIngresada > articulo2.cantPdesc )
             {
+                var descuentoAplicado=CalculoaDescontar(articulo2.precio,cantidadIngresada,articulo2.descuento)
                 var resultadoFinal= CalculoDescuentos(articulo2.precio,articulo2.descuento,cantidadIngresada)
-            alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
+                 
+                alert("Se le aplicara un descuento de $"+" " + descuentoAplicado )
+                alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
               
  
  
@@ -119,17 +182,19 @@ if (confirm("Desea comprar algun Articulo?"))
             cantidadIngresada=prompt("Cantidad")
             if(cantidadIngresada > articulo3.cantPdesc )
             {
-                var resultadoFinal= CalculoDescuentos(articulo3.precio,articulo3.descuento,cantidadIngresada)
-                alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
-              
- 
+                    var descuentoAplicado=CalculoaDescontar(articulo3.precio,cantidadIngresada,articulo3.descuento)
+                    var resultadoFinal= CalculoDescuentos(articulo3.precio,articulo3.descuento,cantidadIngresada)
+                
+                    alert("Se le aplicara un descuento de $"+" " + descuentoAplicado )
+                    alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
+        
  
             }
             else
             {
-            preciofinal=cantidadIngresada*articulo3.precio
-            TotalAcumulado=+preciofinal
-            alert("El precio Final de la compra es de $" + " " + preciofinal)
+                preciofinal=cantidadIngresada*articulo3.precio
+                TotalAcumulado=+preciofinal
+                alert("El precio Final de la compra es de $" + " " + preciofinal)
             
              }
  
@@ -141,19 +206,22 @@ if (confirm("Desea comprar algun Articulo?"))
             cantidadIngresada=prompt("Cantidad")
             if(cantidadIngresada > articulo4.cantPdesc )
             {
-                var resultadoFinal= CalculoDescuentos(articulo4.precio,articulo4.descuento,cantidadIngresada)
-                alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
+                    var descuentoAplicado=CalculoaDescontar(articulo4.precio,cantidadIngresada,articulo4.descuento)
+                    var resultadoFinal= CalculoDescuentos(articulo4.precio,articulo4.descuento,cantidadIngresada)
                 
+                    alert("Se le aplicara un descuento de $"+" " + descuentoAplicado )
+                    alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
+                    
               
  
  
             }
             else
             {
-            preciofinal=cantidadIngresada*articulo4.precio
-            TotalAcumulado=+preciofinal
-            alert("El precio Final de la compra es de $" + " " + preciofinal)
-            
+                preciofinal=cantidadIngresada*articulo4.precio
+                TotalAcumulado=+preciofinal
+                alert("El precio Final de la compra es de $" + " " + preciofinal)
+                
              }
  
    
@@ -164,22 +232,28 @@ if (confirm("Desea comprar algun Articulo?"))
             cantidadIngresada=prompt("Cantidad")
             if(cantidadIngresada > articulo5.cantPdesc )
             {
+                var descuentoAplicado=CalculoaDescontar(articulo5.precio,cantidadIngresada,articulo1.descuento)
                 var resultadoFinal= CalculoDescuentos(articulo5.precio,articulo5.descuento,cantidadIngresada)
+             
+                alert("Se le aplicara un descuento de $"+" " + descuentoAplicado )
                 alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
-              
  
  
             }
             else
             {
-            preciofinal=cantidadIngresada*articulo5.precio
-            TotalAcumulado=+preciofinal
-            alert("El precio Final de la compra es de $" + " " + preciofinal)
+                preciofinal=cantidadIngresada*articulo5.precio
+                TotalAcumulado=+preciofinal
+                alert("El precio Final de la compra es de $" + " " + preciofinal)
             
              }
  
    
         }
+        else{
+            alert("El Articulo No Existe!!")
+            
+            }
 
 
 
