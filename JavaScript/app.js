@@ -23,11 +23,11 @@ function CalculoDescuentos(precio,descuento,cantidad)
 }
 
 
-const articulo1= new Articulo("112244","Amoxidal",1200,10,2)
-const articulo2= new Articulo("113344","Crema Anti Age",2500,5,2)
-const articulo3= new Articulo("114444","Ibuprofeno",900,15,5)
-const articulo4= new Articulo("115544","Aspirina",500,10,3)
-const articulo5= new Articulo("116644","Bisolvon",2800,20,4)
+const articulo1= new Articulo("1144","Amoxidal",1200,10,2)
+const articulo2= new Articulo("2244","Crema Anti Age",2500,5,2)
+const articulo3= new Articulo("3344","Ibuprofeno",900,15,5)
+const articulo4= new Articulo("4444","Aspirina",500,10,3)
+const articulo5= new Articulo("5544","Bisolvon",2800,20,4)
 
 var codIngresado=0
 var cantidadIngresada=0
@@ -65,7 +65,7 @@ if (confirm("Desea comprar algun Articulo?"))
      }
     }
   
-     else if(codIngresado=="112244")
+     else if(codIngresado=="1144")
         {
            alert("El Articulo elegido es"+ " " +articulo1.descripcion + "\n" + "Su precio es :$"+articulo1.precio+"\n"+"si compra más de "+" "+articulo1.cantPdesc+" "+"Unidades" +"\n"+"tiene un descuento del"+" "+articulo1.descuento+"%"+"\n"+"---------------------------------------")
            cantidadIngresada=prompt("Cantidad")
@@ -91,7 +91,7 @@ if (confirm("Desea comprar algun Articulo?"))
           
    
         }
-        else if(codIngresado=="113344")
+        else if(codIngresado=="2244")
         {
             alert("El Articulo elegido es"+ " " +articulo2.descripcion + "\n" + "Su precio es :$"+articulo2.precio+"\n"+"si compra más de "+" "+articulo2.cantPdesc+" "+"Unidades" +"\n"+"tiene un descuento del"+" "+articulo2.descuento+"%"+"\n"+"---------------------------------------")
             cantidadIngresada=prompt("Cantidad")
@@ -113,7 +113,7 @@ if (confirm("Desea comprar algun Articulo?"))
  
    
         }
-        else if(codIngresado=="114444")
+        else if(codIngresado=="3344")
         {
             alert("El Articulo elegido es"+ " " +articulo3.descripcion + "\n" + "Su precio es :$"+articulo3.precio+"\n"+"si compra más de "+" "+articulo3.cantPdesc+" "+"Unidades" +"\n"+"tiene un descuento del"+" "+articulo3.descuento+"%"+"\n"+"---------------------------------------")
             cantidadIngresada=prompt("Cantidad")
@@ -135,7 +135,7 @@ if (confirm("Desea comprar algun Articulo?"))
  
    
         }
-        else if(codIngresado=="115544")
+        else if(codIngresado=="4444")
         {
             alert("El Articulo elegido es"+ " " +articulo4.descripcion + "\n" + "Su precio es :$"+articulo4.precio+"\n"+"si compra más de "+" "+articulo4.cantPdesc+" "+"Unidades" +"\n"+"tiene un descuento del"+" "+articulo4.descuento+"%"+"\n"+"---------------------------------------")
             cantidadIngresada=prompt("Cantidad")
@@ -158,7 +158,7 @@ if (confirm("Desea comprar algun Articulo?"))
  
    
         }
-        else if(codIngresado=="116644")
+        else if(codIngresado=="5544")
         {
             alert("El Articulo elegido es"+ " " +articulo5.descripcion + "\n" + "Su precio es :$"+articulo5.precio+"\n"+"si compra más de "+" "+articulo5.cantPdesc+" "+"Unidades" +"\n"+"tiene un descuento del"+" "+articulo5.descuento+"%"+"\n"+"---------------------------------------")
             cantidadIngresada=prompt("Cantidad")
