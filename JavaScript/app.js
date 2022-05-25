@@ -242,7 +242,7 @@ while (confirm("Desea comprar algun Articulo?"))
             }
            else
            {
-                preciofinal=cantidadIngresada*articulo2.precio
+                preciofinal=cantidadIngresada*articulo4.precio
                 alert("El precio Final de la compra es de $" + " " + preciofinal)
                 TotalAcumulado.push(preciofinal)
            
