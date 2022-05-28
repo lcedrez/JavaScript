@@ -12,9 +12,9 @@ const articulo1= new Articulo("1144","Let It Be Photo White Hoodie",12500,0)
 const articulo2= new Articulo("2244","Let It Be-Mobile Ornament",7800,0)
 const articulo3= new Articulo("3344","“The Beatles: Get Back” Book",15400,0)
 const articulo4= new Articulo("4444","Let It Be Silver Vintage Black T-Shirt",8250,0)
-
+let totalFinal=0
 const artVentas=[articulo1,articulo2,articulo3,articulo4 ]
-
+const carrito=[]
 function Validar(variable)
 {
     if(variable === ''){
@@ -37,6 +37,34 @@ function Validar(variable)
        }
 }
 
+function validarCantidades(cantidad)
+{
+    if(cantidad === '')
+    {
+        alert("El campo esta vacío");
+       return false;
+    }
+    else if(isNaN(cantidad))
+       {
+        
+        {
+            alert("Debe Ingresar un Número")
+
+            return false
+        }
+    }
+    else if(cantidad==0)
+    {
+        alert("La cantidad debe ser mayor a 0")
+        
+        return false
+    }
+    else
+    {
+        return true
+    }
+}
+
 
 
 alert("Bienvendios a la Tienda THE BEATLES")
@@ -51,21 +79,45 @@ while (confirm("Desea comprar algun Articulo?"))
      true;
         
         codIngresado=prompt("Ingrese Codigo del Articulo:")
+       
+        
        while( Validar(codIngresado)==false)
        {
         codIngresado=prompt("Ingrese Codigo del Articulo:")
        }
-      
-       if(( artVentas.some=(codIngresado)=>artVentas.cod_articulo==codIngresado)==true)
-       {
 
-       }
+     
+      
+       if(artVentas.some((art)=>art.cod_articulo==codIngresado)==true)
+       {
+           
+            const resultado = artVentas.find(auxiliar => auxiliar.cod_articulo==codIngresado);
+            alert("El Articulo elegido es"+ " " +resultado.descripcion + "\n" + "Su precio es :$"+resultado.precio+"\n"+"\n"+"---------------------------------------")
+            confirm("Desea Agregar este Articulo al carrito?")
+            {
+
+                cantIngresada=prompt("Ingrese Cantidad:")
+                while(validarCantidades(cantIngresada)==false)
+                {
+                    
+                    cantIngresada=prompt("Ingrese Cantidad:")
+                }
+                let total= resultado.precio *cantIngresada
+
+                alert("El precio total de la compra es : $"+total)
+                 totalFinal +=total
+                
+            }
+       }    
        else
        {
            alert("ESTE ARTICULO NO EXISTE!!")
-       }
-       
+       }    
 
+    }
+    alert("El Total a pagar es de $ " + " "+ totalFinal )
+       
+       /*
         if(codIngresado=="1144")
         {
            alert("El Articulo elegido es"+ " " +articulo1.descripcion + "\n" + "Su precio es :$"+articulo1.precio+"\n"+"si compra más de "+" "+articulo1.cantPdesc+" "+"Unidades" +"\n"+"tiene un descuento del"+" "+articulo1.descuento+"%"+"\n"+"---------------------------------------")
@@ -94,7 +146,8 @@ while (confirm("Desea comprar algun Articulo?"))
             }
 
         }
-    }
+        */
+    
 
 
 
