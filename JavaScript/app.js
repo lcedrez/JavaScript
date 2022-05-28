@@ -1,7 +1,111 @@
 
-/*Segundo Entregable */
+class Articulo{
+    constructor(cod_articulo,descripcion,precio,descuento){
+        this.cod_articulo=cod_articulo;
+        this.descripcion=descripcion;
+        this.precio=precio;
+        this.descuento=descuento;
+    }
+}
 
-/*Creo el objeto Articulo */
+const articulo1= new Articulo("1144","Let It Be Photo White Hoodie",12500,0)
+const articulo2= new Articulo("2244","Let It Be-Mobile Ornament",7800,0)
+const articulo3= new Articulo("3344","“The Beatles: Get Back” Book",15400,0)
+const articulo4= new Articulo("4444","Let It Be Silver Vintage Black T-Shirt",8250,0)
+
+const artVentas=[articulo1,articulo2,articulo3,articulo4 ]
+
+function Validar(variable)
+{
+    if(variable === ''){
+        alert("El campo esta vacío");
+       return false;
+       }
+       else
+       {
+        if(isNaN(variable))
+        {
+            alert("Debe Ingresar un Número")
+
+            return false
+        }
+        else
+        {
+            return true
+        }
+
+       }
+}
+
+
+
+alert("Bienvendios a la Tienda THE BEATLES")
+alert("A continuación un listado de nuestros Articulos")
+
+alert("Codigo: " +articulo1.cod_articulo+"\n" +"Descricpion: "+ articulo1.descripcion+"\n"+"Precio: "+"$"+articulo1.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo2.cod_articulo+"\n" +"Descricpion: "+ articulo2.descripcion+"\n"+"Precio: "+"$"+articulo2.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo3.cod_articulo+"\n" +"Descricpion: "+ articulo3.descripcion+"\n"+"Precio: "+"$"+articulo3.precio+"\n"+"------------------------------------"+"\n"+"Codigo: " +articulo4.cod_articulo+"\n" +"Descricpion: "+ articulo4.descripcion+"\n"+"Precio: "+"$"+articulo4.precio+"\n"+"------------------------------------"+"\n")
+
+
+
+while (confirm("Desea comprar algun Articulo?"))
+    {
+     true;
+        
+        codIngresado=prompt("Ingrese Codigo del Articulo:")
+       while( Validar(codIngresado)==false)
+       {
+        codIngresado=prompt("Ingrese Codigo del Articulo:")
+       }
+      
+       if(( artVentas.some=(codIngresado)=>artVentas.cod_articulo==codIngresado)==true)
+       {
+
+       }
+       else
+       {
+           alert("ESTE ARTICULO NO EXISTE!!")
+       }
+       
+
+        if(codIngresado=="1144")
+        {
+           alert("El Articulo elegido es"+ " " +articulo1.descripcion + "\n" + "Su precio es :$"+articulo1.precio+"\n"+"si compra más de "+" "+articulo1.cantPdesc+" "+"Unidades" +"\n"+"tiene un descuento del"+" "+articulo1.descuento+"%"+"\n"+"---------------------------------------")
+           cantidadIngresada=prompt("Cantidad")
+           while(validarCantidades(cantidadIngresada)==false)
+           {
+            cantidadIngresada=prompt("Cantidad")
+           }
+
+           if(cantidadIngresada >articulo1.cantPdesc )
+           {
+                var descuentoAplicado=CalculoaDescontar(articulo1.precio,cantidadIngresada,articulo1.descuento)
+                var resultadoFinal= CalculoDescuentos(articulo1.precio,articulo1.descuento,cantidadIngresada)
+                
+                alert("Se le aplicara un descuento de $"+" " + descuentoAplicado )
+                alert("El precio Final de la compra es de $ " + " " + resultadoFinal) 
+                TotalAcumulado.push(resultadoFinal)
+            }
+           else
+           {
+                preciofinal=cantidadIngresada*articulo1.precio
+                
+                alert("El precio Final de la compra es de $" + " " + preciofinal)
+                TotalAcumulado.push(preciofinal)
+           
+            }
+
+        }
+    }
+
+
+
+
+
+
+
+
+/*Segundo Entregable 
+
+
 function Articulo(cod_articulo,descripcion,precio,descuento,cantPdesc){
 
     this.cod_articulo=cod_articulo;
@@ -14,7 +118,7 @@ function Articulo(cod_articulo,descripcion,precio,descuento,cantPdesc){
 }
 
 
-/*creo una funcion para calcular el precio Final con descuento*/
+
 function CalculoDescuentos(precio,descuento,cantidad)
 {
     var calculo
@@ -24,7 +128,7 @@ function CalculoDescuentos(precio,descuento,cantidad)
     resultado=precio * cantidad -calculo
     return resultado
 }
-/*Creo otra Funcion para mostrar cuanto es ese descuento*/
+
 function CalculoaDescontar(precio,cantidad,descuento)
 {
     var descaplicado
@@ -32,7 +136,7 @@ function CalculoaDescontar(precio,cantidad,descuento)
 
    return descaplicado
 }
-/*Creo una funcion para validar lo que ingresa el usuario*/
+
 function Validar(variable)
 {
     if(variable === ''){
@@ -58,7 +162,6 @@ function Validar(variable)
 
 
 
-/*Creo otra funcion para validar las cantidades*/
 
 function validarCantidades(cantidad)
 {
@@ -100,7 +203,7 @@ const articulo3= new Articulo("3344","Ibuprofeno",900,15,5)
 const articulo4= new Articulo("4444","Aspirina",500,10,3)
 const articulo5= new Articulo("5544","Bisolvon",2800,20,4)
 
-/*Declaro Variables y un array para guardar el total de la compra */
+
 var codIngresado=0
 var cantidadIngresada=0
 var preciofinal=0
@@ -289,7 +392,7 @@ while (confirm("Desea comprar algun Articulo?"))
     }
 
 
-     /*Reocorro el Array para poder mostrar la suma de toda la compra */
+
         let suma=0;
         for(let i=0;i<TotalAcumulado.length;i++){
             suma+=TotalAcumulado[i];
